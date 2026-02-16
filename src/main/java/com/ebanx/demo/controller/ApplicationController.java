@@ -21,7 +21,7 @@ public class ApplicationController {
     @PostMapping("/reset")
     public ResponseEntity<?> resetDataBase() {
         this.applicationService.reset();
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("OK");
     }
 
 }
