@@ -4,8 +4,6 @@ import com.ebanx.demo.model.entity.Account;
 import com.ebanx.demo.repository.interfaces.AccountRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,11 +15,6 @@ public class AccountRepositoryInMemory implements AccountRepository {
     @Override
     public Account getAccountById(int id) {
         return accounts.get(id);
-    }
-
-    @Override
-    public List<Account> getAllAccounts() {
-        return new ArrayList<>(accounts.values());
     }
 
     @Override
