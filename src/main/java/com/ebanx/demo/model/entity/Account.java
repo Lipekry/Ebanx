@@ -9,28 +9,29 @@ public class Account {
 
     public Account() {}
 
-    public Account(int id, double balance) {
+    public Account(int id, BigDecimal balance) {
         this.id = id;
-        this.balance = BigDecimal.valueOf(balance);
+        this.balance = balance;
     }
 
-    public synchronized void deposit(int amount) throws Exception {
-        if (amount <= 0) {
-            throw new Exception("Valor inválido");
+    public synchronized void deposit(BigDecimal amount) throws Exception {
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Valor inválido");
         }
-        this.balance = this.balance.add(BigDecimal.valueOf(amount));
+
+        this.balance = this.balance.add(amount);
     }
 
-    public synchronized void withdraw(int amount) throws Exception {
-        if (amount < 0) {
-            throw new Exception("Valor inválido");
+    public synchronized void withdraw(BigDecimal amount) throws Exception {
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Valor inválido");
         }
 
-        if (balance.compareTo(BigDecimal.valueOf(amount)) < 0) {
+        if (balance.compareTo(amount) < 0) {
             throw new Exception("Saldo insuficiente");
         }
 
-        balance = balance.subtract(BigDecimal.valueOf(amount));
+        balance = balance.subtract(amount);
     }
 
     public int getId() {
