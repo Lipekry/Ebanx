@@ -1,5 +1,8 @@
 package com.ebanx.demo.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EventDto {
 
     private String type;
