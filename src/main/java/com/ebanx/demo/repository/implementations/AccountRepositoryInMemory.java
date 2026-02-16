@@ -46,7 +46,7 @@ public class AccountRepositoryInMemory implements AccountRepository {
         }
 
         if (!accounts.containsKey(account.getId())) {
-            throw new IllegalStateException("Conta não encontrada");
+            throw new Exception("Conta não encontrada");
         }
 
         accounts.put(account.getId(), account);
