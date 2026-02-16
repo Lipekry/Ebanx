@@ -7,6 +7,6 @@ import java.util.List;
 public interface AccountRepository {
     public Account getAccountById(int id);
     public List<Account> getAllAccounts();
-    public void save(Account account);
-    public void update(Account account);
+    public void save(Account account) throws Exception;
+    public void update(Account account) throws Exception;
 }
