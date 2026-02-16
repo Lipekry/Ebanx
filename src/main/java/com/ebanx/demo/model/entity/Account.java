@@ -1,34 +1,36 @@
 package com.ebanx.demo.model.entity;
 
+import java.math.BigDecimal;
+
 public class Account {
 
     private int id;
-    private double balance;
+    private BigDecimal balance;
 
     public Account() {}
 
     public Account(int id, double balance) {
         this.id = id;
-        this.balance = balance;
+        this.balance = BigDecimal.valueOf(balance);
     }
 
-    public void deposit(int amount) throws Exception {
+    public synchronized void deposit(int amount) throws Exception {
         if (amount <= 0) {
             throw new Exception("Valor inválido");
         }
-        this.balance += amount;
+        this.balance = this.balance.add(BigDecimal.valueOf(amount));
     }
 
-    public void withdraw(int amount) throws Exception {
-        if (amount <= 0) {
+    public synchronized void withdraw(int amount) throws Exception {
+        if (amount < 0) {
             throw new Exception("Valor inválido");
         }
 
-        if (this.balance < amount) {
+        if (balance.compareTo(BigDecimal.valueOf(amount)) < 0) {
             throw new Exception("Saldo insuficiente");
         }
 
-        this.balance -= amount;
+        balance = balance.subtract(BigDecimal.valueOf(amount));
     }
 
     public int getId() {
@@ -39,11 +41,11 @@ public class Account {
         this.id = id;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 }
