@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Repository
+@Repository("inMemory")
 public class AccountRepositoryInMemory implements AccountRepository {
 
     private final Map<Integer, Account> accounts = new ConcurrentHashMap<>();
