@@ -6,4 +6,5 @@ public interface AccountRepository {
     Account getAccountById(int id);
     void save(Account account) throws Exception;
     void update(Account account) throws Exception;
+    void clear();
 }

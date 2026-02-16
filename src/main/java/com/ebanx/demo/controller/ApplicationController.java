@@ -18,9 +18,10 @@ public class ApplicationController {
         return "Hello Ebanx";
     }
 
-    @PostMapping("reset")
+    @PostMapping("/reset")
     public ResponseEntity<?> resetDataBase() {
-        return ResponseEntity.ok("Application Controller");
+        this.applicationService.reset();
+        return ResponseEntity.ok().build();
     }
 
 }

@@ -13,4 +13,8 @@ public class ApplicationService {
         this.accountRepository = accountRepository;
     }
 
+    public void reset() {
+        this.accountRepository.clear();
+    }
+
 }
