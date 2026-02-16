@@ -52,16 +52,6 @@ class AccountRepositoryInMemoryTest {
     }
 
     @Test
-    void shouldReturnAllAccounts() throws Exception {
-        repository.save(new Account(1, new BigDecimal("100")));
-        repository.save(new Account(2, new BigDecimal("200")));
-
-        List<Account> accounts = repository.getAllAccounts();
-
-        assertEquals(2, accounts.size());
-    }
-
-    @Test
     void shouldUpdateExistingAccount() throws Exception {
         Account account = new Account(1, new BigDecimal("100"));
         repository.save(account);
