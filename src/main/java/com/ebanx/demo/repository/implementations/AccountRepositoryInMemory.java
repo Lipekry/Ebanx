@@ -38,7 +38,7 @@ public class AccountRepositoryInMemory implements AccountRepository {
             throw new Exception("Account não pode ser null");
         }
 
-        if (!accounts.containsKey(account.getId())) {
+        if (this.getAccountById(account.getId()) == null) {
             throw new Exception("Conta não encontrada");
         }
 
