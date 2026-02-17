@@ -2,22 +2,24 @@ package com.ebanx.demo.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.math.BigDecimal;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EventDto {
+public class EventRequestDto {
 
     private String type;
-    private String origin;
-    private String destination;
-    private Integer amount;
+    private Integer origin;
+    private Integer destination;
+    private BigDecimal amount;
 
-    public EventDto(String type, String origin, String destination, Integer amount) {
+    public EventRequestDto(String type, Integer origin, Integer destination, BigDecimal amount) {
         this.type = type;
         this.origin = origin;
         this.destination = destination;
         this.amount = amount;
     }
 
-    public EventDto() {}
+    public EventRequestDto() {}
 
     public String getType() {
         return type;
@@ -27,27 +29,27 @@ public class EventDto {
         this.type = type;
     }
 
-    public String getOrigin() {
+    public Integer getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    public void setOrigin(Integer origin) {
         this.origin = origin;
     }
 
-    public String getDestination() {
+    public Integer getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(Integer destination) {
         this.destination = destination;
     }
 
-    public Integer getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }
