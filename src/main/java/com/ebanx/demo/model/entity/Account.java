@@ -7,7 +7,10 @@ public class Account {
     private int id;
     private BigDecimal balance;
 
-    public Account() {}
+    public Account(int id) {
+        this.id = id;
+        this.balance = new BigDecimal(0);
+    }
 
     public Account(int id, BigDecimal balance) {
         this.id = id;
